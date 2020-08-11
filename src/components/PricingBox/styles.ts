@@ -63,29 +63,28 @@ export const BenefitsList = styled.ul`
   ${({ theme }) => css`
     list-style: none;
     margin-bottom: ${theme.spacings.large};
-  `}
-`
 
-export const BenefitsItem = styled.li`
-  ${({ theme }) => css`
-    color: ${theme.colors.black};
-    font-size: ${theme.font.sizes.small};
-    position: relative;
-    padding-left: ${theme.spacings.small};
+    li {
+      color: ${theme.colors.black};
+      font-size: ${theme.font.sizes.small};
+      position: relative;
+      padding-left: ${theme.spacings.small};
+      list-style: none;
 
-    &::after {
-      content: ' ';
-      position: absolute;
-      width: 0.9rem;
-      height: 0.9rem;
-      top: 0.9rem;
-      left: 0rem;
-      border-radius: 100%;
-      background: ${theme.colors.secondary};
-    }
+      &::after {
+        content: ' ';
+        position: absolute;
+        width: 0.9rem;
+        height: 0.9rem;
+        top: 0.9rem;
+        left: 0rem;
+        border-radius: 100%;
+        background: ${theme.colors.secondary};
+      }
 
-    &:not(:last-child) {
-      margin-bottom: ${theme.spacings.xsmall};
+      &:not(:last-child) {
+        margin-bottom: ${theme.spacings.xsmall};
+      }
     }
   `}
 `

@@ -3,6 +3,9 @@ import ResizeObserver from 'resize-observer-polyfill'
 
 import * as S from './styles'
 
+import { ReviewsProps } from 'types/api'
+import { getImageUrl } from 'utils/getImageUrl'
+
 type Props = {
   id: number
   name: string
@@ -10,7 +13,7 @@ type Props = {
   description: string
 }
 
-const ReviewCard: React.FC<Props> = ({ id, name, image, description }) => {
+const ReviewCard = ({ id, name, image, description }: ReviewsProps) => {
   useEffect(() => {
     const texts = document.querySelectorAll('p.description')
 
@@ -31,18 +34,10 @@ const ReviewCard: React.FC<Props> = ({ id, name, image, description }) => {
     <S.Card>
       <S.User>
         <S.Image>
-          <source
-            srcSet={require(`@images/reviews/${image}?webp`)}
-            type="image/webp"
-          />
-          <source
-            srcSet={require(`@images/reviews/${image}`)}
-            type="image/jpg"
-          />
           <img
-            src={require(`@images/reviews/${image}`)}
+            src={getImageUrl(image.url)}
             loading="lazy"
-            alt={name}
+            alt={image.alternativeText}
           />
         </S.Image>
         <S.Name>{name}</S.Name>
